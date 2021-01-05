@@ -1,0 +1,42 @@
+
+  {% extends 'base.html' %}
+ {% block content %}
+    {% include 'navbar.html' %}
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-6">
+                <span><p><p style="color:#A52A2A"><b>Temperature:</b> <i><b>Paddy crop needs a hot and humid climate. It is best suited to regions which have high humidity, prolonged sunshine and an assured supply of water. Abundant sunshine is essential during its four months of growth. The minimum temperature should not go below 15°C as germination cannot take place below that temperature. The favorable conditions for disease to occur is temperature below 18 degree or above 35 degree.</b></i></p><p style="color:#708090"><b>Humidity:</b> <i><b>also plays an important role in paddy yield, as higher relative humidity at the flowering stage under increased temperature negatively affects fertility. The favorable condition for disease to occur is the humidity below 40% or above 90%.</b></i></p><p style="color:#6B8E23"><b>Rainfall: </b><i><b>is also a good indicator of predicting common crop disease, as it can affect the spread of disease. Rain can spread pathogens, pests, and other diseases to plants, leading to massive diseased crops. This could affect its yield or cause the entire field to become unusable. If rainfall is above 110mm then it may lead to the occurance of diseases in paddy crop.</b></i></p></p></span>
+            </div>
+            {% if selected_class=='0' or selected_class==None %}
+            <div class="col-6">
+                {{ div_all_chart | safe }}
+            </div>
+            {% endif %}
+            {% if selected_class=='1'%}
+            <div class="col-6">
+               
+                {{ div_temp_chart | safe }}
+            </div>
+            {% endif %}
+            {% if selected_class=='2' %}
+            <div class="col-6">
+                {{ div_RH_chart | safe }}
+            </div>
+            {% endif %}
+            {% if selected_class=='3' %}
+            <div class="col-6">
+                {{ div_Rain_chart | safe }}
+            </div>
+            {% endif %}
+        </div>
+    </div>  
+    {{ script_all_chart | safe }}  
+        {{ script_temp_chart | safe }}
+       
+        
+        {{ script_RH_chart | safe }}
+        
+       
+        {{ script_Rain_chart | safe }}
+     
+{% endblock %}
